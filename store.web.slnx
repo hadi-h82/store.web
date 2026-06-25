@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Application/Application.csproj" Id="6c64e06a-2216-4a02-a255-2c5060d113db" />
+  <Project Path="DataLayer/DataLayer.csproj" Id="d7f5dc60-3d5e-46a4-8265-cf34a92bbda4" />
+  <Project Path="Domain/Domain.csproj" Id="93cb9606-d551-4f4f-813e-84f60fadadd7" />
+  <Project Path="store.web/store.web.csproj" />
+</Solution>
