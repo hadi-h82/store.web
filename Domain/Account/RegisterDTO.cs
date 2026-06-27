@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Account;
 
-internal class RegisterDTO
+public class RegisterDTO
 {
     [MaxLength(150,ErrorMessage = "نمی توانید بیشتر از 150 کاراکتر وارد نمایید")]
     [Required(ErrorMessage = "ایمیل اجباری است")]

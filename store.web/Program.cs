@@ -1,9 +1,11 @@
+using Application.Services.Account;
 using DataLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IUserService,UserService>();
 
 builder.Services.AddDbContext<DBContext>(options =>
 {
