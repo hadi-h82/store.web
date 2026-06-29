@@ -1,32 +1,69 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Services.Account;
+using Domain.Account;
+using Microsoft.AspNetCore.Mvc;
 
-namespace store.web.Controllers
+namespace store.web.Controllers;
+
+[AutoValidateAntiforgeryToken]
+
+public class AccountController : Controller
 {
-    public class AccountController : Controller
+
+
+    private readonly IUserService _userService;
+
+    public AccountController(IUserService userService)
+    {
+        _userService = userService;
+    }
+
+
+
+    [HttpGet("Register")]
+    public IActionResult Register()
     {
 
-        [HttpGet("Register")]
-        public IActionResult Register()
-        {
-            return View();
-        }
+        return View();
+    }
 
-        [HttpGet("Login")]
-        public IActionResult Login()
-        {
-            return View();
-        }
 
-        [HttpGet("Logout")]
-        public IActionResult Logout()
+    [HttpPost("Register")]
+    [ValidateAntiForgeryToken]
+    public IActionResult Register(RegisterDTO register)
+    {
+        if (ModelState.IsValid)
         {
-            return View();
+            var res = _userService.CreateUser(register);
+            if (res)
+            {
+                return Redirect("Login?registerUser=true");
+            }
+            return Redirect("Login");
         }
+        return View(register);
+    }
 
-        [HttpGet("AccesDenied")]
-        public IActionResult AccesDenied()
-        {
-            return View();
-        }
+
+
+
+    [HttpGet("Login")]
+    public IActionResult Login(bool registerUser = false)
+    {
+        ViewBag.register = registerUser;
+        return View();
+    }
+
+    [HttpGet("Logout")]
+    public IActionResult Logout()
+    {
+        return View();
+    }
+
+    [HttpGet("AccesDenied")]
+    public IActionResult AccesDenied()
+    {
+        return View();
     }
 }
+
+

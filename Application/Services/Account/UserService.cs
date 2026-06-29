@@ -32,6 +32,10 @@ public class UserService : IUserService
         var user = new User();
         user.Email = register.Email;
         user.Password = Hashing.EncodePasswordMd5(register.Password);
+
+        _db.Add(user);
+        _db.SaveChanges();
+
         return true;
     }
 
