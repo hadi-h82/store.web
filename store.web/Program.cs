@@ -28,11 +28,16 @@ builder.Services.AddDbContext<DBContext>(options =>
 var app = builder.Build();
 
 app.UseHttpsRedirection();
-app.UseRouting();
 app.UseStaticFiles();
-
+app.UseRouting();
+// Authentication must run before Authorization so the user principal is set
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
