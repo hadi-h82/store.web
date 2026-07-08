@@ -3,23 +3,23 @@
 	<div class="dashboard_tab_button">
 		<ul role="tablist" class="nav flex-column dashboard-list">
 			<li>
-				<a asp-area="UserPanel" asp-controller="Home" asp-action="Index" data-toggle="tab" class="nav-link">داشبورد</a>
+				<a asp-area="UserPanel" asp-controller="Home" asp-action="Index"  class="nav-link">داشبورد</a>
 				
 			</li>
 			<li>
-				<a asp-area="UserPanel" asp-controller="Home" asp-action="Index" data-toggle="tab" class="nav-link">فاکتور ها</a>
+				<a asp-area="UserPanel" asp-controller="Orders" asp-action="OrdersList"  class="nav-link">فاکتور ها</a>
 
 			</li>
 			<li>
-				<a asp-area="UserPanel" asp-controller="Home" asp-action="Index" data-toggle="tab" class="nav-link">سبد خرید</a>
+				<a asp-area="UserPanel" asp-controller="Orders" asp-action="OpenOrder"  class="nav-link">سبد خرید</a>
 
 			</li>
 			<li>
-				<a asp-area="UserPanel" asp-controller="Home" asp-action="Index" data-toggle="tab" class="nav-link">ویرایشد اطلاعات</a>
+				<a asp-area="UserPanel" asp-controller="Profile" asp-action="EditProfile"  class="nav-link">ویرایشد اطلاعات</a>
 
 			</li>
 			<li>
-				<a asp-area="UserPanel" asp-controller="Home" asp-action="Index" data-toggle="tab" class="nav-link">تغییر کلمه عبور</a>
+				<a asp-area="UserPanel" asp-controller="Profile" asp-action="ChangePassword"  class="nav-link">تغییر کلمه عبور</a>
 
 			</li>
 	
@@ -29,4 +29,4 @@
 			</li>
 		</ul>
 	</div>
-</div>
+</div> 

@@ -10,6 +10,7 @@ public interface IUserService
     bool CreateUser(RegisterDTO register);
     bool IsEmailExsit(string email);
     User LoginUser(LoginDTO login);
+    bool EditUserProfile(EditProfileDTO editProfile);
     #endregion
 
 }

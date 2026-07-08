@@ -46,8 +46,16 @@ public class UserService : IUserService
     {
         string email = TextFixed.FixedEmail(login.Email);
         string pass = Hashing.EncodePasswordMd5(login.Password);
-        return _db.Users.SingleOrDefault(u=>u.Email == email && u.Password == pass);
+        return _db.Users.SingleOrDefault(u => u.Email == email && u.Password == pass);
     }
+
+    public bool EditUserProfile(EditProfileDTO editProfile)
+    {
+     
+        return true;
+    }
+
+
     #endregion
 
 

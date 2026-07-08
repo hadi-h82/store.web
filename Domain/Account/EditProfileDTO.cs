@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
 
-namespace DataLayer.Entites.Account;
-public class User
+using System.ComponentModel.DataAnnotations;
+
+namespace Domain.Account;
+
+public class EditProfileDTO
 {
-    [Key]
     public int Id { get; set; }
     [MaxLength(50)]
     [DataType(DataType.Text)]
@@ -12,10 +14,6 @@ public class User
     [Required]
     [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
-    [MaxLength(150)]
-    [Required]
-    [DataType(DataType.Password)]
-    public string Password { get; set; }
     [MaxLength(500)]
     [MinLength(5)]
     [DataType(DataType.Text)]
@@ -29,5 +27,4 @@ public class User
     [DataType(DataType.PhoneNumber)]
     public string PhoneNumber { get; set; }
 
-    public DateTime CreateDate { get; set; }
 }
