@@ -51,7 +51,18 @@ public class UserService : IUserService
 
     public bool EditUserProfile(EditProfileDTO editProfile)
     {
-     
+        var user = _db.Users.FirstOrDefault(U => U.Id == editProfile.Id);
+        if (user == null)
+            return false;
+
+        user.UserName = editProfile.UserName;
+        user.Email = editProfile.Email;
+        user.Address = editProfile.Address;
+        user.AddressCode = editProfile.AddressCode;
+
+        _db.Update(user);
+        _db.SaveChanges();
+
         return true;
     }
 
